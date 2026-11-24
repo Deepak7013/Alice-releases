@@ -1,0 +1,97 @@
+{
+  "name": "alice-desktop",
+  "productName": "ALICE",
+  "version": "5.0.0",
+  "description": "ALICE desktop assistant with the Knot interface.",
+  "main": "src/main-companion.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis --x64"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "Project ALICE",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.120.0",
+    "@google/genai": "^2.18.0",
+    "@supabase/supabase-js": "^2.112.3",
+    "electron-updater": "^6.8.9",
+    "mammoth": "^1.12.1",
+    "onnxruntime-node": "1.29.0",
+    "openai": "^7.5.0",
+    "pdf-parse": "^1.1.1",
+    "sherpa-onnx-node": "^1.13.8",
+    "sql.js": "^1.14.1"
+  },
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "^26.18.0"
+  },
+  "overrides": {
+    "minimatch": "11.0.1"
+  },
+  "build": {
+    "appId": "com.projectalice.alice",
+    "productName": "ALICE",
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "companion/**/*",
+      "package.json",
+      "!**/*.map"
+    ],
+    "extraResources": [
+      {
+        "from": "companion/src/win/probe.ps1",
+        "to": "win/probe.ps1"
+      },
+      {
+        "from": "companion/src/reflex/hands.ps1",
+        "to": "win/hands.ps1"
+      },
+      {
+        "from": "../alice-runtime-dist/alice_nus_sidecar.exe",
+        "to": "alice-runtime/alice_nus_sidecar.exe"
+      },
+      {
+        "from": "vendor/voice/kokoro-multi-lang-v1_0",
+        "to": "voice/kokoro-multi-lang-v1_0"
+      }
+    ],
+    "win": {
+      "icon": "assets/alice.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "ALICE",
+      "installerIcon": "assets/alice.ico",
+      "uninstallerIcon": "assets/alice.ico",
+      "artifactName": "ALICE_Setup_${version}.${ext}"
+    }
+  },
+  "aliceBuild": {
+    "updateRepo": "Deepak7013/Alice-releases",
+    "channelUrl": "",
+    "channelKeys": {},
+    "installerBase": ""
+  },
+  "publik": false
+}

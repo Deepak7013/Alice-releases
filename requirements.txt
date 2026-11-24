@@ -1,0 +1,28 @@
+# Alice v3.7 audited runtime dependencies
+beautifulsoup4>=4.12
+lxml>=5.0
+numpy>=1.26
+scikit-learn>=1.5
+requests>=2.31
+python-dotenv>=1.0
+Pillow>=10.0
+PyMuPDF>=1.24
+pypdf>=5.0
+python-docx>=1.1
+openpyxl>=3.1
+python-pptx>=1.0
+reportlab>=4.2
+pyautogui>=0.9.54
+PyGetWindow>=0.0.9
+playwright>=1.50
+pyttsx3>=2.90
+comtypes>=1.4.17; platform_system == "Windows"
+pycaw>=20260927; platform_system == "Windows"
+pytest>=8.3
+openai>=2.0
+google-genai>=2.0,<4
+cryptography>=44.0,<47
+fish-audio-sdk>=1.0.0,<2
+
+pywebview>=5.4,<7
+pystray>=0.19.5,<1

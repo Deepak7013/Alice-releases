@@ -1,0 +1,12 @@
+node_modules/
+nus/node_modules/
+nus/dist/
+alice-runtime-dist/
+pyinstaller-work/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+*.sqlite
+*.sqlite3
+*.db
